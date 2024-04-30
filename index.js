@@ -45,7 +45,7 @@ async function run() {
         app.get('/country', async (req, res) => {
             const country = CountryCollection.find();
             const result = await country.toArray();
-            res.send(result)
+            res.send(result);
         })
 
         app.get('/touristSpots/:id', async (req, res) => {
