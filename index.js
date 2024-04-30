@@ -43,7 +43,7 @@ async function run() {
         app.get('/touristSpots/:id', async (req, res) => {
             const id = req.params.id
             const query = { _id: new ObjectId(id) }
-            const result = await TouristsSpotsCollection.findOne(query)
+            const result = await TouristsSpotsCollection.findOne(query);
             res.send(result)
         })
 
