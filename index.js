@@ -60,7 +60,7 @@ async function run() {
             const query = { email : email }
             const cursor = TouristsSpotsCollection.find(query)
             const result = await cursor.toArray();
-            res.send(result)
+            res.send(result);
         })
  
 
