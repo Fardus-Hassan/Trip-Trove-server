@@ -28,6 +28,8 @@ async function run() {
 
     const TouristsSpotsCollection = client.db("TouristsDB").collection("TouristsSportsCollection");
 
+    const CountryCollection = client.db("TouristsDB").collection("CountryCollection");
+
 
     try {
         // Connect the client to the server	(optional starting in v4.7)
@@ -35,8 +37,14 @@ async function run() {
 
 
         app.get('/touristSpots', async (req, res) => {
-            const cursor = TouristsSpotsCollection.find()
+            const cursor = TouristsSpotsCollection.find();
             const result = await cursor.toArray();
+            res.send(result)
+        })
+
+        app.get('/country', async (req, res) => {
+            const country = CountryCollection.find()
+            const result = await country.toArray();
             res.send(result)
         })
 
@@ -54,6 +62,7 @@ async function run() {
             const result = await cursor.toArray();
             res.send(result)
         })
+ 
 
         app.post('/touristSpots', async (req, res) => {
             const touristsData = req.body
